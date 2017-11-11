@@ -13,6 +13,7 @@
 #ifndef DEF_LIBFT_READ_H
 # define DEF_LIBFT_READ_H
 
+# include "libft.h"
 # define GNL_BUFF_SIZE 32
 
 int		twl_gnl(int const fd, char **line, char **remainder);
