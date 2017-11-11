@@ -21,11 +21,13 @@ void	ft_putstr(char const *s);
 void	ft_putnstr(char const *s, size_t n);
 void	ft_putendl(char const *s);
 void	ft_putnbr(int n);
+void	ft_putbase(size_t n, char *base, char *prefix);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putnchar_fd(char c, size_t n, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putnstr_fd(char const *s, size_t n, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_putbase_fd(size_t n, char *base, char *prefix, int fd);
 
 #endif
