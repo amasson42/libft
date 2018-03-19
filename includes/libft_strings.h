@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_strings.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amasson <gwarthur@laposte.net>             +#+  +:+       +#+        */
+/*   By: amasson <amasson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 17:39:30 by amasson           #+#    #+#             */
-/*   Updated: 2015/01/20 13:17:01 by amasson          ###   ########.fr       */
+/*   Updated: 2018/03/19 12:41:04 by amasson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strfjoin(char const *s1, char *s2);
 char	*ft_strtrim(char const *s);
 char	**ft_strsplit(char const *s, char c);
+char	**ft_strcsplit(char const *s, char c);
 char	**ft_strmsplit(char const *s, char *c);
 char	**ft_strdsplit(char const *s);
 size_t	ft_strtabsize(char **tab);

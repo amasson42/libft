@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_strcsplit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amasson <amasson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/06 16:00:39 by amasson           #+#    #+#             */
-/*   Updated: 2018/03/19 13:07:16 by amasson          ###   ########.fr       */
+/*   Created: 2018/03/19 12:44:35 by amasson           #+#    #+#             */
+/*   Updated: 2018/03/19 13:15:12 by amasson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_splits(char const *str, char spliter)
+static int	count_splits(char const *s, char c)
 {
 	int i;
-	int splits;
+	int count;
 
+	count = 1;
 	i = 0;
-	splits = 0;
-	if (str[0] == '\0')
-		return (0);
-	if (str[0] != spliter)
-		splits++;
-	while (str[++i])
-		if (str[i] != spliter && str[i - 1] == spliter)
-			splits++;
-	return (splits);
+	while (s[i])
+	{
+		if (s[i] == c)
+			count++;
+		i++;
+	}
+	return (count);
 }
 
-static char	*strsdup(char const *str, char spliter)
+static char	*strcdup(char const *str, char c)
 {
-	int		i;
-	char	*cpy;
+	int i;
 
+	char *cpy;
 	i = 0;
-	while (str[i] != spliter && str[i] != '\0')
+	while (str[i] != c && str[i] != '\0')
 		i++;
-	if ((cpy = ft_strnew(i)))
+	cpy = malloc(sizeof(char) * (i + 1));
+	if (cpy)
 	{
 		cpy[i] = '\0';
 		while (i-- > 0)
@@ -46,45 +46,42 @@ static char	*strsdup(char const *str, char spliter)
 	return (cpy);
 }
 
-static char	**tabdup(char **tab, char c)
+static char	**tabdup(char **splits, char c)
 {
 	int i;
 
 	i = 0;
-	while (tab[i])
+	while (splits[i])
 	{
-		tab[i] = strsdup(tab[i], c);
-		if (tab[i] == NULL)
+		splits[i] = strcdup(splits[i], c);
+		if (splits[i] == NULL)
 		{
 			while (i-- > 0)
-				free(tab[i]);
-			free(tab);
+				free(splits[i]);
+			free(splits);
 			return (NULL);
 		}
 		i++;
 	}
-	return (tab);
+	return (splits);
 }
 
-char		**ft_strsplit(char const *s, char c)
+char		**ft_strcsplit(char const *s, char c)
 {
-	int		i;
 	char	**splits;
 	int		count;
+	int		i;
 
 	count = count_splits(s, c);
 	if (!(splits = (char **)malloc(sizeof(char *) * (count + 1))))
 		return (NULL);
 	i = 0;
-	count = 0;
+	splits[0] = (char *)s;
+	count = 1;
 	while (s[i])
 	{
-		if (i == 0)
-			if (s[i] != c)
-				splits[count++] = (char *)s + i;
-		if (i != 0)
-			if (s[i - 1] == c && s[i] != c)
-				splits[count++] = (char *)s + i;
+		if (s[i] == c)
+			splits[count++] = (char *)s + i + 1;
 		i++;
 	}
 	splits[count] = NULL;
