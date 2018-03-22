@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putbase_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amasson <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: amasson <amasson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/15 15:59:04 by amasson           #+#    #+#             */
-/*   Updated: 2015/11/16 13:56:21 by amasson          ###   ########.fr       */
+/*   Updated: 2018/03/22 11:07:05 by amasson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	putbase_rec(size_t n, char *base, size_t blen, int fd)
 		ft_putchar_fd(base[n], fd);
 }
 
-void	ft_putbase_fd(size_t n, char *base, char *prefix, int fd)
+void		ft_putbase_fd(size_t n, char *base, char *prefix, int fd)
 {
 	size_t blen;
 

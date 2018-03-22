@@ -6,7 +6,7 @@
 /*   By: amasson <amasson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/19 12:44:35 by amasson           #+#    #+#             */
-/*   Updated: 2018/03/19 13:15:12 by amasson          ###   ########.fr       */
+/*   Updated: 2018/03/22 11:07:47 by amasson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static int	count_splits(char const *s, char c)
 
 static char	*strcdup(char const *str, char c)
 {
-	int i;
+	int		i;
+	char	*cpy;
 
-	char *cpy;
 	i = 0;
 	while (str[i] != c && str[i] != '\0')
 		i++;
