@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static double	_pow_of_ten(int i)
+static double	pow_of_ten(int i)
 {
 	double p;
 
@@ -35,7 +35,7 @@ double			ft_atod(char const *str)
 	else
 		dec_part = 0;
 	if (ent_part >= 0)
-		return (ent_part + (dec_part / _pow_of_ten(ft_sizeofnbr(dec_part))));
+		return (ent_part + (dec_part / pow_of_ten(ft_sizeofnbr(dec_part))));
 	else
-		return (ent_part - (dec_part / _pow_of_ten(ft_sizeofnbr(dec_part))));
+		return (ent_part - (dec_part / pow_of_ten(ft_sizeofnbr(dec_part))));
 }
