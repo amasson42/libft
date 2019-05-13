@@ -12,17 +12,30 @@
 
 #include "libft.h"
 
-double	ft_atod(char const *str)
+static double	_pow_of_ten(int i)
+{
+	double p;
+
+	p = 1;
+	while (i-- > 0)
+		p *= 10;
+	return (p);
+}
+
+double			ft_atod(char const *str)
 {
 	int ent_part;
 	int dec_part;
 
 	ent_part = ft_atoi(str);
-	while (ft_isdigit(*str))
+	while (ft_isdigit(*str) || *str == '+' || *str == '-')
 		str++;
 	if (*str++ == '.')
 		dec_part = ft_atoi(str);
 	else
 		dec_part = 0;
-	return ((double)ent_part + (dec_part / (double)ft_sizeofnbr(dec_part)));
+	if (ent_part >= 0)
+		return (ent_part + (dec_part / _pow_of_ten(ft_sizeofnbr(dec_part))));
+	else
+		return (ent_part - (dec_part / _pow_of_ten(ft_sizeofnbr(dec_part))));
 }

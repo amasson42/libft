@@ -14,8 +14,10 @@
 
 int	ft_sizeofnbr(int nbr)
 {
-	if (nbr < 0)
+	if (nbr <= -10)
 		return (2 + ft_sizeofnbr(nbr / -10));
+	else if (nbr < 0)
+		return (2);
 	else if (nbr >= 10)
 		return (1 + ft_sizeofnbr(nbr / 10));
 	else
